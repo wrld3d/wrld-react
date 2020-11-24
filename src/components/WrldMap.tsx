@@ -4,20 +4,23 @@ import Wrld from "wrld.js";
 
 import { withDefaultProps } from "../helpers/withDefaultProps";
 
-type WrldMapProps = {
+type WrldMapProps = React.PropsWithChildren<{
   apiKey: string;
   containerId: string;
-  contianerStyle?: React.CSSProperties;
+  containerStyle?: React.CSSProperties;
   mapOptions?: Wrld.MapOptions;
   onInitialStreamingComplete?: (map: Wrld.Map) => void;
-}
+  onMapMount?: (map: Wrld.Map) => void;
+}>;
 
 const WrldMap: React.FC<WrldMapProps> = ({
   apiKey,
+  children,
   containerId,
-  contianerStyle,
+  containerStyle,
   mapOptions,
-  onInitialStreamingComplete
+  onInitialStreamingComplete,
+  onMapMount
 }: WrldMapProps) => {
   const divRef = useRef<HTMLDivElement>(null);
   let map: Wrld.Map;
@@ -25,6 +28,7 @@ const WrldMap: React.FC<WrldMapProps> = ({
   useEffect(() => {
     map = Wrld.map(containerId, apiKey, mapOptions);
     registerEvents(map);
+    if (onMapMount) onMapMount(map);
 
     return () => {
       unregisterEvents(map);
@@ -55,9 +59,14 @@ const WrldMap: React.FC<WrldMapProps> = ({
   return (
     <div
       id={containerId}
-      style={contianerStyle}
+      style={{
+        position: "relative",
+        ...containerStyle
+      }}
       ref={divRef}
-    />
+    >
+      {children}
+    </div>
   );
 };
 
