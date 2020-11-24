@@ -7,7 +7,7 @@ import { withDefaultProps } from "../helpers/withDefaultProps";
 type WrldMapProps = React.PropsWithChildren<{
   apiKey: string;
   containerId: string;
-  contianerStyle?: React.CSSProperties;
+  containerStyle?: React.CSSProperties;
   mapOptions?: Wrld.MapOptions;
   onInitialStreamingComplete?: (map: Wrld.Map) => void;
   onMapMount?: (map: Wrld.Map) => void;
@@ -17,7 +17,7 @@ const WrldMap: React.FC<WrldMapProps> = ({
   apiKey,
   children,
   containerId,
-  contianerStyle,
+  containerStyle,
   mapOptions,
   onInitialStreamingComplete,
   onMapMount
@@ -61,7 +61,7 @@ const WrldMap: React.FC<WrldMapProps> = ({
       id={containerId}
       style={{
         position: "relative",
-        ...contianerStyle
+        ...containerStyle
       }}
       ref={divRef}
     >

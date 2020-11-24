@@ -9,7 +9,7 @@ const App = () => {
     <div>
       <WrldMap
         apiKey={"your_api_key_here"}
-        contianerStyle={{
+        containerStyle={{
           width: "600px",
           height: "400px"
         }}
