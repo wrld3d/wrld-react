@@ -31,12 +31,10 @@ const WrldMap: React.FC<WrldMapProps> = ({
     if (onMapMount) onMapMount(map);
 
     return () => {
-      unregisterEvents(map);
-      divRef.current?.childNodes.forEach((child) => {
-        if ((child as Element).id.indexOf("wrld-map-container") === 0) {
-          divRef.current?.removeChild(child);
-        }
-      });
+      if (map) {
+        unregisterEvents(map);
+        map.remove();
+      }
     };
   }, []);
 
