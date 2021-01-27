@@ -1,8 +1,11 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import Wrld from "wrld.js";
 
 import { withDefaultProps } from "../helpers/withDefaultProps";
+
+const defaultContainerId = "wrld-react-map";
+let nextMapId = 0;
 
 type WrldMapProps = React.PropsWithChildren<{
   apiKey: string;
@@ -16,16 +19,33 @@ type WrldMapProps = React.PropsWithChildren<{
 const WrldMap: React.FC<WrldMapProps> = ({
   apiKey,
   children,
-  containerId,
+  containerId: _containerId,
   containerStyle,
   mapOptions,
   onInitialStreamingComplete,
   onMapMount
 }: WrldMapProps) => {
+  const [mounted, setMounted] = useState(false);
+  const [containerId, setContainerId] = useState(_containerId);
   const divRef = useRef<HTMLDivElement>(null);
   let map: Wrld.Map;
 
+  let elementContainerId = containerId;
+  if (!mounted) {
+    const existingElement = document.getElementById(elementContainerId);
+    if (existingElement !== null) {
+      if (containerId !== defaultContainerId) {
+        console.warn(`WrldMap: An element is already using the id: "${containerId}", the containerId prop must be a unique value.`);
+      }
+      else {
+        setContainerId(`${defaultContainerId}-${nextMapId}`);
+        ++nextMapId;
+      }
+    }
+  }
+
   useEffect(() => {
+    setMounted(true);
     map = Wrld.map(containerId, apiKey, mapOptions);
     registerEvents(map);
     if (onMapMount) onMapMount(map);
@@ -69,7 +89,7 @@ const WrldMap: React.FC<WrldMapProps> = ({
 };
 
 const defaultProps = {
-  containerId: "wrld-react-map",
+  containerId: defaultContainerId,
   constianerStyle: {
     width: "600px",
     height: "400px"
