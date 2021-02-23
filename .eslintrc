@@ -3,6 +3,9 @@
   "extends": [
     "wrld-react"
   ],
+  "env": {
+    "jest": true
+  },
   "overrides": [{
     "files": [".ts", ".tsx"],
     "extends": [
