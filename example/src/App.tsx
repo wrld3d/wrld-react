@@ -1,8 +1,10 @@
 import React from "react";
 
-/* globals WrldIndoorControl */
+import { Wrld, WrldMap } from "wrld-react";
 
-import { WrldMap } from "wrld-react";
+declare class WrldIndoorControl {
+  constructor(elementId: string, map: Wrld.Map);
+}
 
 const App = () => {
   return (

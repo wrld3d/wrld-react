@@ -10,7 +10,7 @@
 npm install --save wrld-react
 ```
 
-## Usage
+## JavaScript Usage
 
 ```jsx
 import React from "react";
@@ -63,6 +63,54 @@ export default App;
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
 <script src="https://cdn-webgl.wrld3d.com/wrldjs/addons/indoor_control/latest/indoor_control.js"></script>
+```
+
+## TypeScript Usage
+
+If you are using TypeScript you will need to add declarations for any widgets you wish to use. We are working to add these declarations to so you won't have to.
+
+```tsx
+import React from "react";
+
+import { Wrld, WrldMap } from "wrld-react";
+
+declare class WrldIndoorControl {
+  constructor(elementId: string, map: Wrld.Map);
+}
+
+const App = () => {
+  return (
+    <div>
+      <WrldMap
+        apiKey={"your_api_key_here"}
+        containerStyle={{
+          width: "600px",
+          height: "400px"
+        }}
+        mapOptions={{
+          center: [56.459604, -2.977816],
+          indoorsEnabled: true
+        }}
+        onMapMount={(map) => {
+          new WrldIndoorControl("wrld-indoor-control", map);
+        }}
+      >
+        <div
+          id={"wrld-indoor-control"}
+          style={{
+            position: "absolute",
+            top: "20px",
+            right: "20px",
+            bottom: "40px"
+          }}
+        >
+        </div>
+      </WrldMap>
+    </div>
+  );
+};
+
+export default App;
 ```
 
 ## License
