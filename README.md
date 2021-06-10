@@ -67,7 +67,7 @@ export default App;
 
 ## TypeScript Usage
 
-If you are using TypeScript you will need to add declarations for any widgets you wish to use . We are working to add these declarations to so you won't have to.
+If you are using TypeScript you will need to add declarations for any widgets you wish to use. We are working to add these declarations to so you won't have to.
 
 ```tsx
 import React from "react";
