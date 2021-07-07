@@ -13,8 +13,6 @@ npm install --save wrld-react
 ## JavaScript Usage
 
 ```jsx
-import React from "react";
-
 /* globals WrldIndoorControl */
 
 import { WrldMap } from "wrld-react";

@@ -1,5 +1,3 @@
-import React from "react";
-
 import { Wrld, WrldMap } from "wrld-react";
 
 declare class WrldIndoorControl {
