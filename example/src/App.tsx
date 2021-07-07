@@ -20,6 +20,17 @@ const App = () => {
         onMapMount={(map) => {
           new WrldIndoorControl("wrld-indoor-control", map);
         }}
+        onInitialStreamingComplete={(map) => {
+          map.indoors.on("indoormapenter", ({ indoorMap }) => {
+            map.indoors.setFloor(2);
+            map.setView([56.459984, -2.978238], 19);
+            Wrld.marker([56.459984, -2.978238], {
+              indoorMapId: indoorMap.getIndoorMapId(),
+              indoorMapFloorId: 2
+            }).addTo(map);
+          });
+          map.indoors.enter("westport_house");
+        }}
       >
         <div
           id={"wrld-indoor-control"}
