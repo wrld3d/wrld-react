@@ -88,9 +88,9 @@ const WrldMap: React.FC<WrldMapProps> = ({
   );
 };
 
-const defaultProps = {
+const defaultProps: Partial<WrldMapProps> = {
   containerId: defaultContainerId,
-  constianerStyle: {
+  containerStyle: {
     width: "600px",
     height: "400px"
   },
