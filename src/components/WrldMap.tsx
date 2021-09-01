@@ -11,7 +11,7 @@ type WrldMapProps = React.PropsWithChildren<{
   apiKey: string;
   containerId: string;
   containerStyle?: React.CSSProperties;
-  mapOptions?: Wrld.MapOptions;
+  mapOptions?: Wrld.Map.Options;
   onInitialStreamingComplete?: (map: Wrld.Map) => void;
   onMapMount?: (map: Wrld.Map) => void;
 }>;
