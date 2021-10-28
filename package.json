@@ -50,6 +50,6 @@
     "dist"
   ],
   "dependencies": {
-    "wrld.js": ">=0.1"
+    "wrld.js": "^1.0.0-next.3"
   }
 }
