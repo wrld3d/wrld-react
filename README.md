@@ -68,10 +68,10 @@ export default App;
 <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.1/leaflet.css" rel="stylesheet"/>
 
 <!-- Add this stylesheet and these scripts to the head if you wish to use the WrldIndoorControl widget -->
-<link href="https://cdn-webgl.wrld3d.com/wrldjs/addons/resources/latest/v1/css/wrld.css" rel="stylesheet"/>
+<link href="https://cdn-webgl.wrld3d.com/wrldjs/addons/resources/v1/latest/css/wrld.css" rel="stylesheet"/>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
-<script src="https://cdn-webgl.wrld3d.com/wrldjs/addons/indoor_control/latest/v1/indoor_control.js"></script>
+<script src="https://cdn-webgl.wrld3d.com/wrldjs/addons/indoor_control/v1/latest/indoor_control.js"></script>
 ```
 
 ## TypeScript Usage
