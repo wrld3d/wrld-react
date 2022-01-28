@@ -25,7 +25,8 @@
     "test:watch": "react-scripts test --env=jsdom"
   },
   "peerDependencies": {
-    "react": "^16.0.0"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -50,6 +51,6 @@
     "dist"
   ],
   "dependencies": {
-    "wrld.js": "^1.0.0"
+    "wrld.js": "^1.0.1"
   }
 }
