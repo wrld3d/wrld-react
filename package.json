@@ -1,6 +1,6 @@
 {
   "name": "wrld-react",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A React Component for wrld.js",
   "author": "WRLD",
   "license": "See license in LICENSE.md",
@@ -47,10 +47,9 @@
     "react-dom": "^17.0.2",
     "react-scripts": "^5.0.0",
     "typescript": "^4.3.5",
-    "wrld.js": "^1.0.1"
+    "wrld.js": "^1.1.0"
   },
   "files": [
     "dist"
-  ],
-  "dependencies": {}
+  ]
 }
